@@ -1,0 +1,37 @@
+<h1>Add a New Employee:</h1>
+
+
+<section>
+<div>
+<form [formGroup] = "empForm">
+    <label for="empFirstName">Employee First Name:</label>
+    <input type="text" formControlName = "empFirstName" id="empFirstName">
+    <div *ngIf="empFirstName.invalid && (empFirstName.dirty || empFirstName.touched)" class="alert alert-danger">First Name is Required</div>
+
+    <label for="empLastName">EmployeeFirst Name:</label>
+    <input type="text" formControlName = "empLastName" id="empLastName">
+    <div *ngIf="empLastName.invalid && (empLastName.dirty || empLastName.touched)" class="alert alert-danger">Last Name is Required</div>
+
+    <label for="empAddress">EmployeeAddress</label>
+    <input type="text" formControlName = "empAddress" id="empAddress">
+    <div *ngIf="empAddress.invalid && (empAddress.dirty || empAddress.touched)" class="alert alert-danger">Address is Required</div>
+
+    <label for="empDOB">Employee Date of Birth</label>
+    <input type="text" formControlName = "empDOB" id="empDOB">
+    <div *ngIf="empDOB.invalid && (empDOB.dirty || empDOB.touched)" class="alert alert-danger">Date of Birth is Required</div>
+
+    <button type= "button" (click) = "onSubmit()" id="submitButton">Submit</button>
+</form>
+</div>
+<!-- <div *ngFor="let data of data; let index = index">
+    <ul>
+        <li>{{ data.empid }}</li>
+        <li>{{ data.empFirstName }}</li>
+        <li>{{ data.empLastName }}</li>
+        <li>{{ data.empAddress }}</li>
+        <li>{{ data.empDOB }}</li>
+    </ul>
+</div> -->
+
+
+</section>
