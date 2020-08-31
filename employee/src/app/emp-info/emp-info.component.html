@@ -2,13 +2,15 @@
 
 <div *ngFor="let data of data; let index = index">
     <ul>
-        <li>{{ data.empid }}</li>
+        <li>{{ data.id }}</li>
         <li>{{ data.empFirstName }}</li>
         <li>{{ data.empLastName }}</li>
         <li>{{ data.empAddress }}</li>
         <li>{{ data.empDOB }}</li>
     </ul>
-
+    
+    <button mat-raised-button color="primary" (click)="toggle()">Update Employee</button>
+    <button mat-raised-button color="warn" (click)="delete(data.id)">Delete Employee</button>
 
     <form [formGroup] = "updateForm" *ngIf="diplay">
         <label for="empFirstName">Employee First Name:</label>
@@ -27,8 +29,7 @@
         <input type="text" formControlName = "empDOB" id="empDOB">
         <div *ngIf="empDOB.invalid && (empDOB.dirty || empDOB.touched)" class="alert alert-danger">Date of Birth is Required</div>
         
-        <button mat-raised-button color="primary" (click)="toggle()">Update Employee</button>
-        <button mat-raised-button color="warn" (click)="delete(data.id)">Delete Employee</button>
+        
         <button type= "button" (click) = "onSubmit(data.id,empFirstNameValue,empLastNameValue,empAddressValue,empDOBValue)" id="submitButton">Submit</button>
     </form>
     </div>
